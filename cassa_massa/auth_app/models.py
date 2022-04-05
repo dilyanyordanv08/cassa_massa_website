@@ -22,3 +22,15 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
     objects = AppUsersManager()
+
+
+class Profile(models.Model):
+    first_name = models.CharField(
+        max_length=15,
+    )
+
+    user = models.OneToOneField(
+        AppUser,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )

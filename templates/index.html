@@ -5,6 +5,13 @@
     <title>Title</title>
 </head>
 <body>
+<a href="{% url 'register user' %}">Register</a>
+<a href="{% url 'login user' %}">Login</a>
+<a href="{% url 'logout user' %}">Log out</a>
+
+<h1>
+    {{ request.user }}
+</h1>
 
 </body>
 </html>

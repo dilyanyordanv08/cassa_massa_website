@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django import forms
+from django.contrib.messages.context_processors import messages
 from django.http import request
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -66,4 +67,8 @@ class UserLoginView(LoginView):
 class UserLogoutView(LogoutView):
     next_page = None
 
+# def logout_user(request):
+#     logout(request)
+#     messages.success(request, "you are logged out")
+#     return redirect('home')
 

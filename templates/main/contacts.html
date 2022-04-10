@@ -1,102 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div id="top" class="stuck_position stuck" style="z-index: 1000; position: static; top: auto; margin-left: 0px; width: 100%; left: 0px;">
+{% extends 'base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"
+    <h6>За въпроси и поръчки, не се колебайте да ни пишете.</h6>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Изпрати">
+    </form>
 
-            <div class="container">
-        <div class="row">
-
-
-
-            <div id="logo" class="col-sm-2">
-                <a href="https://www.cassamassa.com/">
-{#                                            {% load static %} <img src="{% static "cassa_massa_app/media/CassaMassa_Logo_.jpg" %}" alt="home" />#}
-                                                        </a>
-            </div>
-            <div class="moduletable   col-sm-2"><div class="module_container"><header class="page_header"><div class="moduleTitle hide">contacts</div></header><div class="mod-custom mod-custom__">
-	<div class="row" style="margin-top: 18px; margin-bottom: 10px; color: white; font-size: 16px;">
-<div class="col-xs-8"><a style="color: white;" href="callto:+359889359495">+359889359495</a></div>
-<div class="col-xs-2"><a class="fa fa-facebook" style="color: white; display: inline;" title="Facebook" href="https://www.facebook.com/cassamassabg" target="_blank" rel="noopener noreferrer">&nbsp;</a>&nbsp;</div>
-<div class="col-xs-2"><a class="fa fa-instagram" style="color: white; display: inline;" title="Instagram" href="https://www.instagram.com/cassamassabg/" target="_blank" rel="noopener noreferrer">&nbsp;</a>&nbsp;</div>
-<div class="col-xs-12"><a style="color: white;" href="mailto:info@cassamassa.com">info@cassamassa.com</a></div>
-</div></div></div></div>
-
-
-
-            <nav class="moduletable home_menu  col-sm-8"><div class="module_container">
-<div class="icemegamenu">
-	<ul id="icemegamenu">
-		<li id="iceMenu_658" class="iceMenuLiLevel_1 ">
-			<a href="/bg/uslugi" class="iceMenuTitle">
-				<span class="icemega_title icemega_nosubtitle">Услуги</span>
-			</a>
-		</li>
-		<li id="iceMenu_655" class="iceMenuLiLevel_1 mzr-drop parent ">
-			<a href="#" class=" iceMenuTitle ">
-				<span class="icemega_title icemega_nosubtitle">Проекти</span>
-			</a>
-			<ul class="icesubMenu icemodules sub_level_1" style="width:280px">
-				<li>
-					<div style="float:left;width:280px" class="iceCols">
-						<ul>
-							<li id="iceMenu_656" class="iceMenuLiLevel_2 ">
-								<a href="/bg/proekti/masi" class=" iceMenuTitle ">
-									<span class="icemega_title icemega_nosubtitle">Маси</span>
-								</a>
-							</li>
-							<li id="iceMenu_662" class="iceMenuLiLevel_2 ">
-								<a href="/bg/proekti/kuhni" class=" iceMenuTitle ">
-									<span class="icemega_title icemega_nosubtitle">Кухни</span>
-								</a>
-							</li>
-							<li id="iceMenu_663" class="iceMenuLiLevel_2 ">
-								<a href="/bg/proekti/spalni" class=" iceMenuTitle ">
-									<span class="icemega_title icemega_nosubtitle">Спални</span>
-								</a>
-							</li>
-							<li id="iceMenu_664" class="iceMenuLiLevel_2 ">
-								<a href="/bg/proekti/drugi" class=" iceMenuTitle ">
-									<span class="icemega_title icemega_nosubtitle">Други</span>
-								</a>
-							</li>
-							<li id="iceMenu_666" class="iceMenuLiLevel_2 ">
-								<a href="/bg/proekti/garderobi" class=" iceMenuTitle ">
-									<span class="icemega_title icemega_nosubtitle">Гардероби</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</li>
-		<li id="iceMenu_659" class="iceMenuLiLevel_1 ">
-			<a href="/bg/cassamassa-blog" class=" iceMenuTitle ">
-				<span class="icemega_title icemega_nosubtitle">Блог</span>
-			</a>
-		</li>
-		<li id="iceMenu_660" class="iceMenuLiLevel_1 ">
-			<a href="/bg/ready-for-sell-projects" class="iceMenuTitle">
-				<span class="icemega_title icemega_nosubtitle">Готови проекти</span>
-			</a>
-		</li>
-		<li id="iceMenu_657" class="iceMenuLiLevel_1 ">
-			<a href="/bg/materiali" class=" iceMenuTitle ">
-				<span class="icemega_title icemega_nosubtitle">Материали</span>
-			</a>
-		</li>
-		<li id="iceMenu_661" class="iceMenuLiLevel_1 ">
-			<a href="/bg/contactus" class=" iceMenuTitle ">
-				<span class="icemega_title icemega_nosubtitle">Контакти</span>
-			</a>
-		</li>
-	</ul>
-</div></div></nav>
-            </div>
-    </div>
-    </div>
-</body>
-</html>
+{% endblock %}

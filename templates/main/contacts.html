@@ -1,12 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base_without_auth.html' %}
 {% block page_content %}
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_contact_form.css' %}">
     <h6>За въпроси и поръчки, не се колебайте да ни пишете.</h6>
     <form action="" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Изпрати">
     </form>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 {% endblock %}

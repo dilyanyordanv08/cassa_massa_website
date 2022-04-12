@@ -2,13 +2,9 @@ from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django import forms
-from django.contrib.messages.context_processors import messages
-from django.http import request
-from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from cassa_massa.auth_app.models import Profile
-from django.contrib.auth import logout as auth_logout
+
 
 
 UserModel = get_user_model()
@@ -46,7 +42,7 @@ class UserRegistrationForm(UserCreationForm):
 class UserRegistrationView(CreateView):
     form_class = UserRegistrationForm
     template_name = 'auth/register.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('home page')
 
     # Stay logged after registering
     def form_valid(self, form):
@@ -60,15 +56,15 @@ class UserLoginView(LoginView):
     template_name = 'auth/login.html'
 
     def get_success_url(self):
-        return reverse_lazy('index')
+        return reverse_lazy('home page')
 
 
 # TODO logout
 class UserLogoutView(LogoutView):
     next_page = None
 
-# def logout_user(request):
-#     logout(request)
-#     messages.success(request, "you are logged out")
-#     return redirect('home')
+
+class LogoutUserView(LogoutView):
+    next_page = None
+    template_name = 'index.html'
 

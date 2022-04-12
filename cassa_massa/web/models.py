@@ -19,7 +19,7 @@ class Contact(models.Model):
         validators=(
             MinLengthValidator(CELL_PHONE_MIN_LENGTH),
             validate_only_letters,
-        )
+        ),
     )
     email = models.EmailField(
         null=False,

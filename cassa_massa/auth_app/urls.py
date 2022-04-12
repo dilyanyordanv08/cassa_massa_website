@@ -1,11 +1,13 @@
 from django.urls import path, include
-from cassa_massa.auth_app.views import UserRegistrationView, UserLoginView, UserLogoutView
+from django.views.generic import TemplateView
+
+from cassa_massa.auth_app.views import UserRegistrationView, UserLoginView, LogoutUserView
 from cassa_massa.web import views
 
 urlpatterns = (
     path('register/', UserRegistrationView.as_view(), name='register user'),
     path('login/', UserLoginView.as_view(), name='login user'),
-    # path('logout/', views.logout, name='logout'),
+    path('logout/', LogoutUserView.as_view(), name='logout'),
 
-    # path('accounts/', include('django.contrib.auth.urls')),
+    path('home_page/', TemplateView.as_view(template_name='home_page.html'), name='home page'),
 )

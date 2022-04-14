@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, CreateView, FormView
@@ -28,9 +29,12 @@ class ServicesTemplateView(TemplateView):
 class ContactFormCreateView(FormView):
     template_name = 'main/contacts.html'
     form_class = ContactForm
-    success_url = '/thanks/'
+    success_url = 'main/contacts.html'
 
     # Method is called when valid form data has been POSTed, should return HttpResponse
     def form_valid(self, form):
         form.send_email()
         return super().form_valid(form)
+
+    def get_success_url(self):
+        messages.success(self.request, "Message was sent successfully!")

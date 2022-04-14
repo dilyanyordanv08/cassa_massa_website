@@ -1,6 +1,5 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
-
 from cassa_massa.web.validators import validate_only_letters
 
 
@@ -13,13 +12,15 @@ class Contact(models.Model):
 
     name = models.CharField(
         max_length=NAME_MAX_LENGTH,
+        validators=(
+            validate_only_letters,
+        )
     )
     cell_phone_number = models.CharField(
         max_length=CELL_PHONE_MAX_LENGTH,
         validators=(
             MinLengthValidator(CELL_PHONE_MIN_LENGTH),
-            validate_only_letters,
-        ),
+        )
     )
     email = models.EmailField(
         null=False,

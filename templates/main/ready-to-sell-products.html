@@ -1,4 +1,50 @@
 {% extends 'base.html' %}
 {% block page_content %}
+    {% load static %}
 
+{#    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_services.css' %}">#}
+
+    <style>
+        {
+            box-sizing: border-box
+        }
+        .column {
+            float: left;
+            width: 400px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .row {
+            border-spacing: 100px;
+        }
+    </style>
+
+    <h1>Готови проекти</h1>
+    <div class="row">
+        {% for product in finished_products %}
+            <div class="column" style="background-color: whitesmoke">
+
+                <p>
+                    <img class="tables" alt="table-image" src="{{ product.table_image.url }}">
+
+                <h5>
+                    {{ product.table_name }}
+                </h5>
+                <h6>
+                    {{ product.table_price }} лв.
+                </h6>
+                <h6>
+                    {{ product.table_sizes }}
+                </h6>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
 {% endblock %}
+
+

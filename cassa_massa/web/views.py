@@ -5,28 +5,8 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, FormView, ListView
 
 from cassa_massa.web.forms import ContactForm
+from cassa_massa.web.models import Services, FinishedProducts
 
-#
-# def contact_view(request):
-#     if request.method == "POST":
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return render(request, 'main/contacts.html')
-#     form = ContactForm()
-#     context = {'form': form}
-#     return render(request, 'main/contacts.html', context)
-from cassa_massa.web.models import Services
-
-
-class ServicesTemplateView(TemplateView):
-    template_name = 'main/services.html'
-
-
-# class ContactFormCreateView(CreateView):
-#     template_name = 'main/contacts.html'
-#     form_class = ContactForm()
-#     success_url = reverse_lazy('contacts')
 
 class ContactFormCreateView(FormView):
     template_name = 'main/contacts.html'
@@ -47,4 +27,12 @@ class ServicesListView(ListView):
     model = Services
     template_name = 'main/services.html'
     context_object_name = 'services'
+    description_items = Services.objects.all().order_by('description')
+
+
+class FinishedProductsListView(ListView):
+    model = FinishedProducts
+    template_name = 'main/ready-to-sell-products.html'
+    context_object_name = 'finished_products'
+
 

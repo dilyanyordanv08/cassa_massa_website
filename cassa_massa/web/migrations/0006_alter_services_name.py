@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='services',
             name='name',
-            field=models.CharField(max_length=35, validators=[cassa_massa.web.validators.validate_only_letters]),
+            field=models.CharField(max_length=35, validators=[cassa_massa.web.validators.validate_only_letters_and_spaces]),
         ),
     ]

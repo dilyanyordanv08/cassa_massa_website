@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Services',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20, validators=[cassa_massa.web.validators.validate_only_letters])),
+                ('name', models.CharField(max_length=20, validators=[cassa_massa.web.validators.validate_only_letters_and_spaces])),
                 ('image', models.ImageField(upload_to='')),
                 ('description', models.TextField()),
             ],

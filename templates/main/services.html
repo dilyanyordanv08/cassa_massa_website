@@ -1,74 +1,30 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <h1>Услуги</h1>
-    {% for service in services %}
-        <style>
-            {
-                box-sizing: border-box
-            }
-            .column {
-                float: left;
-                width: 50%
-            }
+    {% load static %}
 
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-        </style>
-        <div class="row">
-            <div class="column" style="background-color: whitesmoke;">
-                <h2>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_services.css' %}">
+
+    <h1>Услуги</h1>
+    <div class="row">
+        {% for service in services %}
+            <div class="column" style="background-color: whitesmoke">
+                <h5>
                     {{ service.name }}
-                </h2>
+                </h5>
                 <p>
-                    {{ service.image }}
-                    {{ service.description }}
-                </p>
-            </div>
-            <div class="column" style="background-color: whitesmoke;">
-                <h2>
+                    <img class="card-img-top img-responsive" alt="service-image" src="{{ service.image.url }}">
+                <h6>
                     {{ service.name }}
-                </h2>
-                <p>
-                    {{ service.image }}
-                    {{ service.description }}
-                </p>
+                </h6>
+                {{ service.description }}
+
+
             </div>
-        <hr>
-        </div>
-        {#        <div>#}
-        {#            {{ service.name }}#}
-        {#        </div>#}
-        {#        <div>#}
-        {#            {{ service.image }}#}
-        {#        </div>#}
-        {#        <div>#}
-        {#            {{ service.description }}#}
-        {#        </div>#}
-        {#        <hr>#}
-    {% endfor %}
+            <hr>
+
+        {% endfor %}
+
+    </div>
 {% endblock %}
 
 
-{#<div class="row">#}
-{#    <div class="column" style="background-color: white;">#}
-{#        <h2>#}
-{#            {{ service.name }}#}
-{#        </h2>#}
-{#        <p>#}
-{#            {{ service.image }}#}
-{#            {{ service.description }}#}
-{#        </p>#}
-{#    </div>#}
-{#    <div class="column" style="background-color: white;">#}
-{#        <h2>#}
-{#            {{ service.name }}#}
-{#        </h2>#}
-{#        <p>#}
-{#            {{ service.image }}#}
-{#            {{ service.description }}#}
-{#        </p>#}
-{#    </div>#}
-{#</div>#}

@@ -20,6 +20,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='contact',
             name='name',
-            field=models.CharField(max_length=25, validators=[cassa_massa.web.validators.validate_only_letters]),
+            field=models.CharField(max_length=25, validators=[cassa_massa.web.validators.validate_only_letters_and_spaces]),
         ),
     ]

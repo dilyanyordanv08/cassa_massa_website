@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='contact',
             name='cell_phone_number',
-            field=models.CharField(max_length=10, validators=[django.core.validators.MinLengthValidator(10), cassa_massa.web.validators.validate_only_letters]),
+            field=models.CharField(max_length=10, validators=[django.core.validators.MinLengthValidator(10), cassa_massa.web.validators.validate_only_letters_and_spaces]),
         ),
     ]

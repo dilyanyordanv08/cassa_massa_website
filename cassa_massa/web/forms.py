@@ -63,7 +63,7 @@ class ContactForm(forms.ModelForm):
                 'style': 'max-width: 300px;',
                 'placeholder': 'Telephone Number'
             }),
-            'email': TextInput(attrs={
+            'email': EmailInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Email'
@@ -73,9 +73,9 @@ class ContactForm(forms.ModelForm):
                 'style': 'max-width: 300px;',
                 'placeholder': 'Subject'
             }),
-            'message': EmailInput(attrs={
+            'message': TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 700px; max-height: 100px',
+                'style': 'max-width: 700px;',
                 'placeholder': 'Message'
             }),
         }

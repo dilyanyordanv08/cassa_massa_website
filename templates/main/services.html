@@ -1,4 +1,74 @@
-{% extends 'base_without_auth.html' %}
+{% extends 'base.html' %}
 {% block page_content %}
+    <h1>Услуги</h1>
+    {% for service in services %}
+        <style>
+            {
+                box-sizing: border-box
+            }
+            .column {
+                float: left;
+                width: 50%
+            }
 
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        </style>
+        <div class="row">
+            <div class="column" style="background-color: whitesmoke;">
+                <h2>
+                    {{ service.name }}
+                </h2>
+                <p>
+                    {{ service.image }}
+                    {{ service.description }}
+                </p>
+            </div>
+            <div class="column" style="background-color: whitesmoke;">
+                <h2>
+                    {{ service.name }}
+                </h2>
+                <p>
+                    {{ service.image }}
+                    {{ service.description }}
+                </p>
+            </div>
+        <hr>
+        </div>
+        {#        <div>#}
+        {#            {{ service.name }}#}
+        {#        </div>#}
+        {#        <div>#}
+        {#            {{ service.image }}#}
+        {#        </div>#}
+        {#        <div>#}
+        {#            {{ service.description }}#}
+        {#        </div>#}
+        {#        <hr>#}
+    {% endfor %}
 {% endblock %}
+
+
+{#<div class="row">#}
+{#    <div class="column" style="background-color: white;">#}
+{#        <h2>#}
+{#            {{ service.name }}#}
+{#        </h2>#}
+{#        <p>#}
+{#            {{ service.image }}#}
+{#            {{ service.description }}#}
+{#        </p>#}
+{#    </div>#}
+{#    <div class="column" style="background-color: white;">#}
+{#        <h2>#}
+{#            {{ service.name }}#}
+{#        </h2>#}
+{#        <p>#}
+{#            {{ service.image }}#}
+{#            {{ service.description }}#}
+{#        </p>#}
+{#    </div>#}
+{#</div>#}

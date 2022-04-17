@@ -1,7 +1,8 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, CreateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
 
 from cassa_massa.web.forms import ContactForm
 
@@ -15,6 +16,7 @@ from cassa_massa.web.forms import ContactForm
 #     form = ContactForm()
 #     context = {'form': form}
 #     return render(request, 'main/contacts.html', context)
+from cassa_massa.web.models import Services
 
 
 class ServicesTemplateView(TemplateView):
@@ -31,6 +33,7 @@ class ContactFormCreateView(FormView):
     form_class = ContactForm
     success_url = 'main/contacts.html'
 
+    # TODO
     # Method is called when valid form data has been POSTed, should return HttpResponse
     def form_valid(self, form):
         form.send_email()
@@ -38,3 +41,10 @@ class ContactFormCreateView(FormView):
 
     def get_success_url(self):
         messages.success(self.request, "Message was sent successfully!")
+
+
+class ServicesListView(ListView):
+    model = Services
+    template_name = 'main/services.html'
+    context_object_name = 'services'
+

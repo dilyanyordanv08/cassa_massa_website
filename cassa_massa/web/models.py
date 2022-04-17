@@ -35,3 +35,20 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Services(models.Model):
+    SERVICES_NAME_MAX_LENGTH = 35
+    name = models.CharField(
+        max_length=SERVICES_NAME_MAX_LENGTH,
+        validators=(
+            validate_only_letters,
+        )
+    )
+
+    image = models.ImageField()
+
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name

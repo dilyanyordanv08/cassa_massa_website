@@ -1,10 +1,10 @@
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView
 from django import forms
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
-
+from django.views.generic import CreateView, FormView
+from django.contrib.auth import authenticate
 
 
 UserModel = get_user_model()
@@ -54,17 +54,22 @@ class UserRegistrationView(CreateView):
 
 class UserLoginView(LoginView):
     template_name = 'auth/login.html'
+    next_page = 'home page'
 
-    def get_success_url(self):
-        return reverse_lazy('home page')
+    # def get_success_url(self):
+    #     return reverse_lazy('home page')
 
 
-# TODO logout
-class UserLogoutView(LogoutView):
-    next_page = None
+# # TODO logout
+# class UserLogoutView(LogoutView):
+#     next_page = None
 
 
 class LogoutUserView(LogoutView):
     next_page = None
     template_name = 'index.html'
+
+
+class ChangePasswordView(PasswordResetView):
+    pass
 

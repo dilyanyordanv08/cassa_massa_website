@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    {% load static %}
 
+    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_services.css' %}">
 
     <h1>Услуги</h1>
@@ -17,13 +17,9 @@
                     {{ service.name }}
                 </h6>
                 {{ service.description }}
-
-
             </div>
             <hr>
-
         {% endfor %}
-
     </div>
 {% endblock %}
 

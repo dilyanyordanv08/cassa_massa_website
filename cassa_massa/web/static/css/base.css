@@ -1,0 +1,52 @@
+.logo {
+    float: left;
+    position: relative;
+    margin: 15px 15px 15px 20px;
+}
+
+.telephone-number {
+    color: white
+}
+
+.email {
+    color: white
+}
+
+.logout-button {
+    color: white;
+
+}
+
+a:hover {
+    color: red;
+}
+
+.footer-year {
+    color: black;
+}
+
+.logo-footer {
+    float: left;
+    position: relative;
+    margin: 55px 15px 15px 20px;
+
+}
+
+.footer {
+    background-color: #3F3E3F;
+}
+
+.header {
+    background-color: #3F3E3F
+}
+
+.size-header {
+    height: 100px;
+}
+
+
+.body {
+    display: table;
+    width: 100%;
+}
+

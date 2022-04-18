@@ -3,6 +3,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +13,22 @@
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
 
-    <link rel=”stylesheet” href=”{% static 'css/styles_contact_form.css' %}”>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
     <title>Cassa Massa</title>
 </head>
 <body>
 
-<header style="background-color: #3F3E3F">
+<header class="size-header">
     <div class="header">
-        <div class="jumbotron">
-            <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>
+        <div class="logo-header">
+            <img class="logo" style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>
         </div>
         <h6>
-            <span style="margin-left: 200px; margin-bottom: 200px; background-color: white">+359889359495</span>
+            <span class="telephone-number">+359889359495</span>
         </h6>
         <h6>
-            <span style="margin-left: 200px; margin-bottom: 200px; background-color: white">info@cassamassa.com</span>
+            <span class="email">info@cassamassa.com</span>
         </h6>
 
         <div class="dropdown">
@@ -42,39 +44,41 @@
                 <li><a class="dropdown-item" href="#">Други</a></li>
             </ul>
             {% if request.user.is_authenticated %}
-{#                <li class="nav-item">#}
+                {#                <li class="nav-item">#}
                 <a class="btn btn-secondary" href="{% url 'services' %}" role="button">Услуги</a>
-{#                </li>#}
+                {#                </li>#}
                 {% if not hide_additional_btn_items %}
-{#                    <li class="nav-item">#}
-                        <a class="btn btn-secondary" href="#" role="button">Блог</a>
-{#                    </li>#}
-{#                    <li class="nav-item">#}
-                        <a class="btn btn-secondary" href="{% url 'finished-products' %}" role="button">Готови Проекти</a>
-{#                    </li>#}
+                    {#                    <li class="nav-item">#}
+                    <a class="btn btn-secondary" href="#" role="button">Блог</a>
+                    {#                    </li>#}
+                    {#                    <li class="nav-item">#}
+                    <a class="btn btn-secondary" href="{% url 'finished-products' %}" role="button">Готови Проекти</a>
+                    {#                    </li>#}
                 {% endif %}
-                <a class="btn btn-secondary" href="#" role="button">Материали</a>
+                <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
                 <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
             {% endif %}
         </div>
 
     </div>
-    <a href="{% url 'logout' %}">Logout</a>
+    <div>
+        <a class="logout-button" href="{% url 'logout' %}">Logout</a>
+    </div>
 </header>
 <hr/>
-<p>
+<p class="body">
     {% block page_content %}
     {% endblock %}
 </p>
 <hr/>
-<footer style="background-color: #3F3E3F">
+<footer>
     <div class="footer">
-        <div class="jumbotron">
-            <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>
+        <div class="logo-footer">
+            <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt="footer-logo"/>
         </div>
         <div class="jumbotron text-center" style="margin-top:10px">
             <h5>
-                <span style="background-color: white">@2022</span>
+                <span class="footer-year">@2022</span>
             </h5>
             <a class="btn btn-secondary" href="/privacy-policy/">Privacy Policy</a>
         </div>

@@ -9,7 +9,7 @@ urlpatterns = (
 
     path('finished-products/', FinishedProductsListView.as_view(), name='finished-products'),
     path('contacts/', ContactFormCreateView.as_view(), name='contacts'),
-
+    path('materials/', TemplateView.as_view(template_name='main/materials.html'),name='materials'),
     path('services/', ServicesListView.as_view(), name='services'),
 
 

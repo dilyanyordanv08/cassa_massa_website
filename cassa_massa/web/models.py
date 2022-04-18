@@ -76,3 +76,5 @@ class FinishedProducts(models.Model):
 
     table_price = models.IntegerField()
 
+
+

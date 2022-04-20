@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block page_content %}
     {% load static %}
+
     <h1>Материали и качествен контрол</h1>
     <style>
         h5 {
-            font-family: "Times New Roman";
-            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            list-style: none;
         }
 
         .column {
@@ -18,10 +20,14 @@
             display: table;
             clear: both;
         }
+        .materials-picture {
+            max-height: 100%;
+            max-width: 100%;
+        }
     </style>
     <div class="row">
         <div class="column" style="background-color: white">
-            <img class="materials-image" alt="materials-image" src="mediafiles/materials.jpeg/">
+            <img class="materials-picture" src="{% static "images/materials.jpeg" %}" alt="materials-picture">
         </div>
         <div class="column" style="background-color: white">
             <p>

@@ -1,18 +1,7 @@
-from django.core.validators import MinLengthValidator
-from django.forms import ModelForm, TextInput, EmailInput, NumberInput
+from django.forms import TextInput, EmailInput
 from django import forms
-from cassa_massa.web.models import Contact
-from cassa_massa.web.validators import validate_only_letters_and_spaces
+from cassa_massa.web.models import Contact, TableContactForm
 
-
-# class ContactForm(forms.Form):
-#     class Meta:
-#         model = Contact
-#         fields = '__all__'
-#
-#     def send_email(self):
-#         # send email using the self.cleaned_data dictionary
-#         pass
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -50,3 +39,42 @@ class ContactForm(forms.ModelForm):
     def send_email(self):
         # send email using the self.cleaned_data dictionary
         pass
+
+
+class TableInquiryForm(forms.ModelForm):
+    class Meta:
+        model = TableContactForm
+        fields = '__all__'
+
+        widgets = {
+            'table_type': forms.RadioSelect(),
+
+            'number_of_seats': forms.NumberInput(attrs={'style': 'width: 50px'}),
+
+            'table_shape': forms.RadioSelect(),
+
+            'table_arrangement': forms.RadioSelect(),
+
+            'wood_type': forms.RadioSelect(),
+
+            'table_epoxy_color': forms.RadioSelect(),
+
+            'table_legs': forms.RadioSelect(),
+
+            'table_top_oil': forms.RadioSelect(),
+
+            'customer_name': forms.TextInput(),
+
+            'email': forms.EmailInput(),
+
+            'cell_phone_number': forms.TextInput(),
+
+            'message': forms.Textarea(),
+
+
+
+        }
+
+    # def send_email(self):
+    #     # send email using the self.cleaned_data dictionary
+    #     pass

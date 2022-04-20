@@ -10,7 +10,7 @@ class Contacts(admin.ModelAdmin):
 
 @admin.register(Services)
 class Services(admin.ModelAdmin):
-    list_display = ('name', 'description', 'image')
+    list_display = ('service_order', 'name', 'description', 'image')
 
 
 @admin.register(FinishedProducts)

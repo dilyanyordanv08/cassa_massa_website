@@ -57,12 +57,13 @@
                 {% endif %}
                 <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
                 <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
+                <a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">Маси форма</a>
+
             {% endif %}
         </div>
-
+        <div>
+        <a class="logout-button" href="{% url 'logout' %}">LOGOUT</a>
     </div>
-    <div>
-        <a class="logout-button" href="{% url 'logout' %}">Logout</a>
     </div>
 </header>
 <hr/>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/table-form.css' %}">
+
+
+    <h6>Форма за запитване</h6>
+    <hr>
+    <h6>Тук може да посочите параметрите на желата от вас маса.</h6>
+
+    <form action="{% url 'table-inquiry-form' %}" method="post">
+        {% csrf_token %}
+
+{#        <div class="column">#}
+{#            <h6>Вид Маса</h6>#}
+{#            {{ form.table_type }}#}
+{#            <h6>Брой места</h6>#}
+{#            {{ form.number_of_seats }}#}
+{#            <h6>Форма</h6>#}
+{#            {{ form.table_shape }}#}
+{#            <h6>Подредба</h6>#}
+{#            {{ form.table_arrangement }}#}
+{#        </div>#}
+{#        <div class="column-two">#}
+{#            <h6>Вид дърво</h6>#}
+{#            {{ form.wood_type }}#}
+{#            <h6>Цвят на смолата</h6>#}
+{#            {{ form.table_epoxy_color }}#}
+{#            <h6>Вид крака</h6>#}
+{#            {{ form.table_legs }}#}
+{#            <h6>Вид финиш</h6>#}
+{#            {{ form.table_top_oil }}#}
+{#        </div>#}
+{#        <div class="column-three">#}
+{#            <h6>Име</h6>#}
+{#            {{ form.customer_name }}#}
+{#            <h6>Имейл</h6>#}
+{#            {{ form.email }}#}
+{#            <h6>Телефон</h6>#}
+{#            {{ form.cell_phone_number }}#}
+{#            <h6>Съобщение</h6>#}
+{#            {{ form.message }}#}
+{#            <input type="submit" value="Изпрати">#}
+{#        </div>#}
+{#    </form>#}
+
+
+     <form action="{% url 'table-inquiry-form' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+    </form>
+{% endblock %}
+

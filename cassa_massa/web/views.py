@@ -1,10 +1,7 @@
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
-from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, FormView, ListView
 
-from cassa_massa.web.forms import ContactForm
+from cassa_massa.web.forms import ContactForm, TableInquiryForm
 from cassa_massa.web.models import Services, FinishedProducts
 
 
@@ -36,3 +33,14 @@ class FinishedProductsListView(ListView):
     context_object_name = 'finished_products'
 
 
+class TableInquiryCreateView(FormView):
+    template_name = 'main/table_inquiry_form.html'
+    form_class = TableInquiryForm
+    # success_url = 'table-inquiry'
+
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        messages.success(self.request, "Message was sent successfully!")

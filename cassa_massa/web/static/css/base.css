@@ -1,7 +1,7 @@
 .logo {
     float: left;
     position: relative;
-    margin: 15px 15px 15px 20px;
+    margin: 15px 15px 30px 20px;
 }
 
 .telephone-number {
@@ -14,7 +14,8 @@
 
 .logout-button {
     color: white;
-
+    float: right;
+    margin: -25px 40px 10px 20px;
 }
 
 a:hover {
@@ -37,11 +38,12 @@ a:hover {
 }
 
 .header {
-    background-color: #3F3E3F
+    background-color: #3F3E3F;
+    height: 150px;
 }
 
 .size-header {
-    height: 100px;
+    display: block;
 }
 
 

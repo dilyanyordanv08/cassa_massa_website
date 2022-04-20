@@ -3,9 +3,18 @@
 }
 .column {
     float: left;
-    width: 400px;
+    width: 33%;
 }
 
+.column-two {
+    float: right;
+    width: 33%;
+}
+
+/*.column-three {*/
+/*    float: right;*/
+/*    width: 30%;*/
+/*}*/
 .row:after {
     content: "";
     display: table;
@@ -14,4 +23,15 @@
 
 .row {
     border-spacing: 100px;
+}
+
+.tables-image {
+    padding: 0;
+    display: block;
+    margin: 0 auto auto 0;
+
+    height: 350px;
+    width: 500px;
+    max-height: 500px;
+    max-width: 500px;
 }

@@ -6,6 +6,11 @@
     width: 50%;
 }
 
+.column-two {
+    float: right;
+    width: 50%;
+}
+
 .row:after {
     content: "";
     display: table;

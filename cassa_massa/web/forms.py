@@ -9,27 +9,27 @@ class ContactForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'name': TextInput(attrs={
+            'name': forms.TextInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Name'
             }),
-            'cell_phone_number': TextInput(attrs={
+            'cell_phone_number': forms.TextInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Telephone Number'
             }),
-            'email': EmailInput(attrs={
+            'email': forms.EmailInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Email'
             }),
-            'subject': TextInput(attrs={
+            'subject': forms.TextInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'Subject'
             }),
-            'message': TextInput(attrs={
+            'message': forms.Textarea(attrs={
                 'class': "form-control",
                 'style': 'max-width: 700px;',
                 'placeholder': 'Message'

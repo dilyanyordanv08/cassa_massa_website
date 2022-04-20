@@ -47,34 +47,66 @@ class TableInquiryForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'table_type': forms.RadioSelect(),
+            'table_type': forms.Select(attrs={
+                'style': 'width: 160px',
+            }),
 
-            'number_of_seats': forms.NumberInput(attrs={'style': 'width: 50px'}),
+            'number_of_seats': forms.NumberInput(attrs={
+                'class': 'form-control',
+                'style': 'width: 50px',
+            }),
 
-            'table_shape': forms.RadioSelect(),
+            'table_shape': forms.Select(attrs={
+                'style': 'width: 160px',
+            }),
 
-            'table_arrangement': forms.RadioSelect(),
+            'table_arrangement': forms.Select(attrs={
+                'style': 'width: 160px',
+            }),
 
-            'wood_type': forms.RadioSelect(),
+            'wood_type': forms.Select(attrs={
+                 'style': 'width: 160px',
+            }),
 
-            'table_epoxy_color': forms.RadioSelect(),
+            'table_epoxy_color': forms.Select(attrs={
+                'style': 'width: 160px',
+            }),
 
-            'table_legs': forms.RadioSelect(),
+            'table_legs': forms.Select(attrs={
+                 'style': 'width: 160px',
+            }),
 
-            'table_top_oil': forms.RadioSelect(),
+            'table_top_oil': forms.Select(attrs={
+                 'style': 'width: 160px',
+            }),
 
-            'customer_name': forms.TextInput(),
+            'customer_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Име',
+                'style': 'width: 500px',
+            }),
 
-            'email': forms.EmailInput(),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Email',
+                'style': 'width: 500px',
+            }),
 
-            'cell_phone_number': forms.TextInput(),
+            'cell_phone_number': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Telephone number',
+                'style': 'width: 500px',
+            }),
 
-            'message': forms.Textarea(),
-
-
+            'message': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Message',
+                'rows': '3',
+                'style': 'width: 500px',
+            }),
 
         }
 
-    # def send_email(self):
-    #     # send email using the self.cleaned_data dictionary
-    #     pass
+    def send_email(self):
+        # send email using the self.cleaned_data dictionary
+        pass

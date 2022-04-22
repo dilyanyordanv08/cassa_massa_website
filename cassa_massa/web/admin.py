@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from cassa_massa.web.models import Contact, Services, FinishedProducts
+from cassa_massa.web.models import Contact, Services, FinishedProducts, Category, Images
 
 
 @admin.register(Contact)
@@ -16,3 +16,13 @@ class Services(admin.ModelAdmin):
 @admin.register(FinishedProducts)
 class FinishedProducts(admin.ModelAdmin):
     list_display = ('table_name', 'table_sizes', 'table_price')
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Images)
+class ImagesAdmin(admin.ModelAdmin):
+    pass

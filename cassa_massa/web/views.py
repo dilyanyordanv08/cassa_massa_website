@@ -1,8 +1,8 @@
 from django.contrib import messages
-from django.views.generic import TemplateView, FormView, ListView
+from django.views.generic import FormView, ListView
 
 from cassa_massa.web.forms import ContactForm, TableInquiryForm
-from cassa_massa.web.models import Services, FinishedProducts
+from cassa_massa.web.models import Services, FinishedProducts, Category, Images
 
 
 class ContactFormCreateView(FormView):
@@ -44,3 +44,13 @@ class TableInquiryCreateView(FormView):
 
     def get_success_url(self):
         messages.success(self.request, "Message was sent successfully!")
+
+
+class ImageCategoryListView(ListView):
+    model = Images
+    template_name = 'main/proekti/masi.html'
+    context_object_name = 'images'
+    description_items = Images.objects.all().order_by('title')
+
+
+

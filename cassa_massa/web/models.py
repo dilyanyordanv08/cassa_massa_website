@@ -1,6 +1,7 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
 from cassa_massa.web.validators import validate_only_letters_and_spaces
+from PIL import Image
 
 
 class Contact(models.Model):
@@ -40,7 +41,7 @@ class Contact(models.Model):
 class Services(models.Model):
     SERVICES_NAME_MAX_LENGTH = 35
 
-    service_order = models. IntegerField()
+    service_order = models.IntegerField()
 
     name = models.CharField(
         max_length=SERVICES_NAME_MAX_LENGTH,
@@ -149,7 +150,7 @@ class TableContactForm(models.Model):
     )
 
     TYPE_OF_WOOD = [(x, x) for x in (EUROPEAN_WALNUT, AMERICAN_WALNUT, OAK, CHERRY_WOOD,
-                                          OLIVE, OTHER_EXOTIC_WOOD)]
+                                     OLIVE, OTHER_EXOTIC_WOOD)]
 
     wood_type = models.CharField(
         max_length=max(len(x) for (x, _) in TYPE_OF_WOOD),
@@ -157,7 +158,7 @@ class TableContactForm(models.Model):
     )
 
     EPOXY_COLOR = [(x, x) for x in (BRIGHT_BLUE, WHITE_PEARL, GREEN, GOLD, DARK_BLUE, SOLID_BLACK,
-                                         RED, GRAY, PURPLE, COLORLESS)]
+                                    RED, GRAY, PURPLE, COLORLESS)]
 
     table_epoxy_color = models.CharField(
         max_length=max(len(x) for (x, _) in EPOXY_COLOR),
@@ -203,3 +204,45 @@ class TableContactForm(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Category(models.Model):
+    title = models.CharField(
+        max_length=50
+    )
+
+    image = models.ImageField(
+        null=True,
+        blank=True,
+    )
+
+    def __str__(self):
+        return self.title
+
+
+class Images(models.Model):
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE)
+
+    title = models.CharField(
+        blank=True,
+        max_length=50,
+    )
+
+    images = models.ImageField(
+        blank=True,
+        null=True,
+    )
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.images.path)
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.images.path)

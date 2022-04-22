@@ -1,5 +1,3 @@
-
-
 .logo {
     float: left;
     position: relative;
@@ -17,27 +15,23 @@
 .logout-button {
     color: white;
     float: right;
-    margin: -25px 40px 10px 20px;
+    margin: -50px 40px 10px 20px;
 }
 
 a:hover {
     color: red;
 }
 
-.footer-year {
-    color: black;
-}
-
 .logo-footer {
     float: left;
     position: relative;
-    margin: 100px 15px 15px 20px;
-
+    margin: 100px 15px 100px 120px;
+    background-color: black;
 }
 
 .header {
     background-color: #3F3E3F;
-    height: 150px;
+    height: 200px;
 }
 
 .size-header {
@@ -54,12 +48,33 @@ body, html {
 }
 
 .footer {
-    position: fixed;
-    padding: 10px 10px 0px 10px;
+    position: relative;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 150px;
     background-color: #3F3E3F;
-    margin-top: -50px;
+    margin-top: 0px;
+    display: block;
 
+}
+
+.py-3 {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+}
+.mt-auto {
+    margin-top: auto !important;
+}
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 100px;
+}
+
+.container2 {
+    float: right;
+    position: fixed;
+    margin: 100px 15px 100px 120px;
+    background-color: black;
 }

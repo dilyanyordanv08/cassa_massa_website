@@ -2,7 +2,8 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 from cassa_massa.web.views import ContactFormCreateView, ServicesListView, FinishedProductsListView, \
-    TableInquiryCreateView, ImageCategoryListView
+    TableInquiryCreateView, TableCategoryListView, KitchenCategoryListView, BedroomCategoryListView, \
+    WardrobesCategoryListView, OthersCategoryListView
 
 urlpatterns = (
     path('privacy-policy/', TemplateView.as_view(template_name='main/privacy_policy.html')),
@@ -15,6 +16,11 @@ urlpatterns = (
 
     path('table-inquiry/', TableInquiryCreateView.as_view(), name='table-inquiry-form'),
 
-    path('proekti/masi/', ImageCategoryListView.as_view(), name='tables'),
+    path('proekti/masi/', TableCategoryListView.as_view(), name='tables'),
+    path('proekti/kuhni/', KitchenCategoryListView.as_view(), name='kitchens'),
+    path('proekti/spalni/', BedroomCategoryListView.as_view(), name='bedrooms'),
+    path('proekti/garderobi/', WardrobesCategoryListView.as_view(), name='wardrobes'),
+    path('proekti/others/', OthersCategoryListView.as_view(), name='others'),
+
 
 )

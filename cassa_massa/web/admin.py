@@ -25,4 +25,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Images)
 class ImagesAdmin(admin.ModelAdmin):
-    pass
+    list_filter = ('category',)

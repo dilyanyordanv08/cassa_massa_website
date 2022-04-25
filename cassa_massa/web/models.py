@@ -207,42 +207,29 @@ class TableContactForm(models.Model):
 
 
 class Category(models.Model):
-    title = models.CharField(
+    category_title = models.CharField(
         max_length=50
     )
 
-    image = models.ImageField(
-        null=True,
-        blank=True,
-    )
-
     def __str__(self):
-        return self.title
+        return self.category_title
 
 
 class Images(models.Model):
+    title = models.CharField(
+        blank=True,
+        null=True,
+        max_length=50,
+    )
+
+    category_image = models.ImageField(
+        blank=True,
+        null=True,
+    )
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE)
 
-    title = models.CharField(
-        blank=True,
-        max_length=50,
-    )
-
-    images = models.ImageField(
-        blank=True,
-        null=True,
-    )
-
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        img = Image.open(self.images.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.images.path)

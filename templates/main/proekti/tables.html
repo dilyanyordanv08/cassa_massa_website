@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/masi.css' %}">
+
+    <div class="row">
+
+        {% for image in category_images %}
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="column" style="background-color: whitesmoke">
+                    <p></p>
+                        <img class="card-img-top img-responsive" alt="table-image" src="{{ image.category_image.url }}">
+                </div>
+            {% else %}
+                <div class="column-two" style="background-color: whitesmoke">
+                    <p>
+                        <img class="card-img-top img-responsive" alt="service-image" src="{{ image.category_image.url }}">
+                </div>
+            {% endif %}
+        {% endfor %}
+
+
+    </div>
+{% endblock %}

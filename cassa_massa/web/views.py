@@ -36,6 +36,7 @@ class FinishedProductsListView(ListView):
 class TableInquiryCreateView(FormView):
     template_name = 'main/table_inquiry_form.html'
     form_class = TableInquiryForm
+
     # success_url = 'table-inquiry'
 
     def form_valid(self, form):
@@ -46,11 +47,41 @@ class TableInquiryCreateView(FormView):
         messages.success(self.request, "Message was sent successfully!")
 
 
-class ImageCategoryListView(ListView):
+class TableCategoryListView(ListView):
     model = Images
-    template_name = 'main/proekti/masi.html'
-    context_object_name = 'images'
-    description_items = Images.objects.all().order_by('title')
+    template_name = 'main/proekti/tables.html'
+    context_object_name = 'category_images'
+
+    queryset = Images.objects.filter(category__category_title="tables")
 
 
+class KitchenCategoryListView(ListView):
+    model = Images
+    template_name = 'main/proekti/kitchens.html'
+    context_object_name = 'category_images'
 
+    queryset = Images.objects.filter(category__category_title="kitchens")
+
+
+class BedroomCategoryListView(ListView):
+    model = Images
+    template_name = 'main/proekti/bedroom.html'
+    context_object_name = 'category_images'
+
+    queryset = Images.objects.filter(category__category_title="bedrooms")
+
+
+class WardrobesCategoryListView(ListView):
+    model = Images
+    template_name = 'main/proekti/wardrobes.html'
+    context_object_name = 'category_images'
+
+    queryset = Images.objects.filter(category__category_title="wardrobes")
+
+
+class OthersCategoryListView(ListView):
+    model = Images
+    template_name = 'main/proekti/others.html'
+    context_object_name = 'category_images'
+
+    queryset = Images.objects.filter(category__category_title="others")

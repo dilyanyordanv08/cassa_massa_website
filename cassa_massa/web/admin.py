@@ -16,6 +16,7 @@ class Services(admin.ModelAdmin):
 @admin.register(FinishedProducts)
 class FinishedProducts(admin.ModelAdmin):
     list_display = ('table_name', 'table_sizes', 'table_price')
+    search_fields = ('table_name',)
 
 
 @admin.register(Category)
@@ -26,3 +27,5 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Images)
 class ImagesAdmin(admin.ModelAdmin):
     list_filter = ('category',)
+    search_fields = ('title',)
+

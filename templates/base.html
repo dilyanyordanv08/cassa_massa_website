@@ -23,7 +23,9 @@
 <header class="size-header">
     <div class="header">
         <div class="logo-header">
-            <img class="logo" style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>
+            <a href="{% url 'index' %}"><img class="logo" style="width: 15%"
+                                             src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/></a>
+            {#            <img class="logo" style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>#}
         </div>
         <h6>
             <span class="telephone-number">+359889359495</span>
@@ -76,10 +78,10 @@
 </p>
 
 {#<footer class="footer">#}
-{#    <div class="logo-footer">#}
-{#        <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt="footer-logo"/>#}
-{#    </div>#}
-{#    <div class="jumbotron text-center" style="margin-top:10px">#}
+{#<div class="logo-footer">#}
+{#    <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt="footer-logo"/>#}
+{#</div>#}
+{#    <div class="jumbotron text-center">#}
 {#        <h5>#}
 {#            <span class="footer-year">@2022</span>#}
 {#        </h5>#}
@@ -87,18 +89,19 @@
 {#    </div>#}
 {#</footer>#}
 
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">
-            @2022.
-            <a class="btn btn-secondary" href="/privacy-policy/">Privacy Policy</a>
-        </span>
 
-        <span class="text-muted">
-        <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt="footer-logo"/>
-            </span>
+<footer class="footer">
+{#    <div class="logo-footer">#}
+{#        <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png"#}
+{#             alt="footer-logo"/>#}
+{#    </div>#}
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2022 Copyright: <a class="btn btn-secondary" href="/privacy-policy/">Privacy Policy</a>
+        <a class="text-dark" href="https://cassamassa.com">CassaMassa.com</a>
     </div>
 </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

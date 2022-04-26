@@ -5,13 +5,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/table-form.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
-
-    <h6>Форма за запитване</h6>
-
-    <h6>Тук може да посочите параметрите на желаната от вас маса.</h6>
+    <div class="info">
+        <h6>Форма за запитване</h6>
+        <h6>Тук може да посочите параметрите на желаната от вас маса.</h6>
+    </div>
     <br>
 
-    <form action="{% url 'table-inquiry-form' %}" method="post">
+    <form class="inquiry-form" action="{% url 'table-inquiry-form' %}" method="post">
         {% csrf_token %}
         <div class="column">
             <h6>Вид Маса</h6>

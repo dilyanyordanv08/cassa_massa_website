@@ -1,11 +1,42 @@
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 200px;
+/*.footer {*/
+/*    position: relative;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    height: 200px;*/
+/*    background-color: black;*/
+/*}*/
+
+/*.text-muted {*/
+/*    float: left;*/
+/*    position: relative;*/
+/*    margin: 50px 15px 100px 120px;*/
+/*}*/
+
+.header {
     background-color: #3F3E3F;
+    min-height: 80px;
+    /*height: 200px;*/
 }
 
-/*.login {*/
-/*    float: right;*/
+/*.size-header {*/
+/*    display: block;*/
 /*}*/
+
+
+body {
+    /*height: 100%;*/
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    margin-top: auto;
+
+}

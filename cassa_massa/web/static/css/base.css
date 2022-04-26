@@ -2,14 +2,15 @@
     float: left;
     position: relative;
     margin: 15px 15px 30px 20px;
+    display: flex;
 }
 
 .telephone-number {
-    color: white
+    color: white;
 }
 
 .email {
-    color: white
+    color: white;
 }
 
 .logout-button {
@@ -22,15 +23,11 @@ a:hover {
     color: red;
 }
 
-.logo-footer {
-    float: left;
-    position: relative;
-    margin: 50px 15px 100px 120px;
-}
 
 .header {
     background-color: #3F3E3F;
-    height: 200px;
+    min-height: 150px;
+    /*height: 200px;*/
 }
 
 .size-header {
@@ -38,31 +35,26 @@ a:hover {
 }
 
 
-body, html {
-    min-height: 100%;
+body {
+    /*height: 100%;*/
+    margin: 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    height: 100vh;
 }
+
 
 .footer {
-    position: sticky;
+    position: relative;
     bottom: 0;
     width: 100%;
-    height: 150px;
-    background-color: whitesmoke;
+    height: 50px;
+    margin-top: auto;
+
 }
 
-.py-3 {
-    padding-top: 1rem!important;
-    padding-bottom: 1rem!important;
-}
-.mt-auto {
-    margin-top: auto !important;
-}
-
-.container {
-
-    max-width: 200px;
-    padding: 100px;
-}
+/*.logo-footer {*/
+/*    float: left;*/
+/*    position: relative;*/
+/*    margin: 50px 15px 50px 20px;*/
+/*}*/

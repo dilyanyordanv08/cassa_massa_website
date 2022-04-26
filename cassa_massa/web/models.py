@@ -1,5 +1,7 @@
+from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 from django.db import models
+
 from cassa_massa.web.validators import validate_only_letters_and_spaces
 from PIL import Image
 
@@ -233,3 +235,72 @@ class Images(models.Model):
     def __str__(self):
         return self.title
 
+
+# class Post(models.Model):
+#     title = models.CharField(
+#         max_length=200,
+#         unique=True,
+#     )
+#
+#     slug = models.SlugField(
+#         max_length=200,
+#         unique=True,
+#     )
+#
+#     author = models.ForeignKey(
+#         User,
+#         on_delete=models.CASCADE,
+#         related_name='blog_posts'
+#     )
+#
+#     update_on = models.DateTimeField(
+#         auto_now=True
+#     )
+#
+#     content = models.TextField()
+#
+#     created_on = models.DateTimeField(
+#         auto_now_add=True
+#     )
+#
+#     class Meta:
+#         ordering = ['-created_on']
+#
+#     def __str__(self):
+#         return self.title
+
+
+
+# class Person(models.Model):
+#     VAT_MIN_LENGTH = 10
+#     Customer_first_name = models.CharField(
+#         max_length=30,
+#         null=True,
+#         blank=True,
+#     )
+#     Customer_family_name = models.CharField(
+#         max_length=30,
+#         null=True,
+#         blank=True,
+#     )
+#     Customer_address = models.CharField(max_length=60)
+#     Customer_order = models.TextField()
+#     Customer_order_price = models.IntegerField()
+#     Customer_satisfaction_score = models.IntegerField()
+#     Company_name = models.CharField(
+#         max_length=30,
+#         null=True,
+#         blank=True,
+#     )
+#     Company_vat_number = models.CharField(
+#         max_length=10,
+#         validators=(
+#             MinLengthValidator(VAT_MIN_LENGTH)
+#         ),
+#         null=True,
+#         blank=True,
+#     )
+#     customer_telephone_number = models.CharField(max_length=10)
+#
+#     def __str__(self):
+#         return self.Customer_first_name

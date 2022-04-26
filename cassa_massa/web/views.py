@@ -85,3 +85,6 @@ class OthersCategoryListView(ListView):
     context_object_name = 'category_images'
 
     queryset = Images.objects.filter(category__category_title="others")
+
+
+

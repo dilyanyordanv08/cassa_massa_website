@@ -1,9 +1,14 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 from django.db import models
+from django.urls import reverse
 
+from cassa_massa.settings import AUTH_USER_MODEL
 from cassa_massa.web.validators import validate_only_letters_and_spaces
-from PIL import Image
+
+
+AppUser = get_user_model()
 
 
 class Contact(models.Model):
@@ -235,41 +240,62 @@ class Images(models.Model):
     def __str__(self):
         return self.title
 
+    def __unicode__(self):
+        return self.title
 
-# class Post(models.Model):
-#     title = models.CharField(
-#         max_length=200,
-#         unique=True,
-#     )
-#
-#     slug = models.SlugField(
-#         max_length=200,
-#         unique=True,
-#     )
-#
-#     author = models.ForeignKey(
-#         User,
-#         on_delete=models.CASCADE,
-#         related_name='blog_posts'
-#     )
-#
-#     update_on = models.DateTimeField(
-#         auto_now=True
-#     )
-#
-#     content = models.TextField()
-#
-#     created_on = models.DateTimeField(
-#         auto_now_add=True
-#     )
-#
-#     class Meta:
-#         ordering = ['-created_on']
-#
-#     def __str__(self):
-#         return self.title
+    slug = models.SlugField(
+        null=True,
+    )
+
+    def get_absolute_url(self):
+        return reverse("table-details", kwargs={"slug": self.slug})
 
 
+class PhotoAlbum(models.Model):
+    menu = models.ForeignKey(
+        Images,
+        on_delete=models.CASCADE,
+        related_name="child_images",
+        )
+
+    image = models.ImageField()
+
+    order = models.IntegerField(
+        blank=True,
+        null=True,
+    )
+
+    def __unicode__(self):
+        return self.menu
+
+    class Meta:
+        ordering = ('order',)
+
+
+class Post(models.Model):
+    title = models.CharField(
+        max_length=200,
+    )
+
+    author = models.ForeignKey(
+        AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='blog_posts',
+    )
+
+    body = models.TextField()
+
+    image = models.ImageField()
+
+    slug = models.SlugField(
+        null=True,
+    )
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("article-detail", kwargs={"slug": self.slug})
 
 # class Person(models.Model):
 #     VAT_MIN_LENGTH = 10

@@ -1,8 +1,8 @@
 from django.contrib import messages
-from django.views.generic import FormView, ListView
+from django.views.generic import FormView, ListView, DetailView
 
 from cassa_massa.web.forms import ContactForm, TableInquiryForm
-from cassa_massa.web.models import Services, FinishedProducts, Category, Images
+from cassa_massa.web.models import Services, FinishedProducts, Images, Post, PhotoAlbum
 
 
 class ContactFormCreateView(FormView):
@@ -55,6 +55,12 @@ class TableCategoryListView(ListView):
     queryset = Images.objects.filter(category__category_title="tables")
 
 
+class TablesDetailView(DetailView):
+    model = Images
+    template_name = "main/proekti/tables_slug.html"
+    context_object_name = 'image'
+
+
 class KitchenCategoryListView(ListView):
     model = Images
     template_name = 'main/proekti/kitchens.html'
@@ -85,6 +91,16 @@ class OthersCategoryListView(ListView):
     context_object_name = 'category_images'
 
     queryset = Images.objects.filter(category__category_title="others")
+
+
+class BlogPostView(ListView):
+    model = Post
+    template_name = 'main/blog/blog.html'
+
+
+class BlogPostDetailView(DetailView):
+    model = Post
+    template_name = "main/blog/blog-01.html"
 
 
 

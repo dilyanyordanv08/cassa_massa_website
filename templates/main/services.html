@@ -1,29 +1,3 @@
-{#{% extends 'base.html' %}#}
-{#{% block page_content %}#}
-{##}
-{#    {% load static %}#}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_services.css' %}">#}
-{##}
-{#    <h1>Услуги</h1>#}
-{#    <div class="row">#}
-{#        {% for service in services %}#}
-{#            <div class="column" style="background-color: whitesmoke">#}
-{#                <h5>#}
-{#                    {{ service.name }}#}
-{#                </h5>#}
-{#                <p>#}
-{#                    <img class="card-img-top img-responsive" alt="service-image" src="{{ service.image.url }}">#}
-{#                <h6>#}
-{#                    {{ service.name }}#}
-{#                </h6>#}
-{#                {{ service.description }}#}
-{#            </div>#}
-{#            <hr>#}
-{#        {% endfor %}#}
-{#    </div>#}
-{#{% endblock %}#}
-
-
 {% extends 'base.html' %}
 {% block page_content %}
 

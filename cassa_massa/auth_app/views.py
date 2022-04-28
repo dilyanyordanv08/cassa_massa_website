@@ -6,7 +6,6 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, FormView
 from django.contrib.auth import authenticate
 
-
 UserModel = get_user_model()
 
 
@@ -25,17 +24,6 @@ class UserRegistrationForm(UserCreationForm):
     # TODO later extend with validation for last name
     def clean_last_name(self):
         return self.cleaned_data['last_name']
-
-    # def save(self, commit=True):
-    #     user = super().save(commit=commit)
-    #     profile = Profile(
-    #         **self.cleaned_data,
-    #         user=user,
-    #     )
-    #     if commit:
-    #         profile.save()
-    #
-    #     return user
 
 
 # Register form
@@ -72,4 +60,3 @@ class LogoutUserView(LogoutView):
 
 class ChangePasswordView(PasswordResetView):
     pass
-

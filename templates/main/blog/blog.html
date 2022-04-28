@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog-posts.css' %}">
+
+    <h1>Блог</h1>
+
+    {% for post in object_list %}
+        <ul>
+            <img src="{{ post.image.url }}" alt="blog pic">
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        </ul>
+
+    {% endfor %}
+{% endblock %}

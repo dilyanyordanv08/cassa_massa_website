@@ -4,3 +4,19 @@ input[type=text], input[type=email], textarea {
     margin: 19px;
     display: inline-block;
 }
+
+.column-one {
+    float: left;
+    width: 50%;
+    margin-left: 50px;
+}
+
+.column-two {
+    float: right;
+    width: 40%;
+}
+
+.text {
+    margin-left: 50px;
+}
+

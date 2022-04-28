@@ -5,11 +5,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/masi.css' %}">
 
     <div class="row">
-        {% for image in object_list %}
+        {% for image in image.child_images.all %}
             {% if forloop.counter0|divisibleby:1 %}
                 <div class="column" style="background-color: whitesmoke">
-                    <a href="{{ image.get_absolute_url }}"><img src="{{ image.category_image.url }}" alt="pic"></a>
                     <p>
+                        <img src="{{ image.image.url }}" alt="pic">
+                    </p>
                 </div>
             {% endif %}
         {% endfor %}

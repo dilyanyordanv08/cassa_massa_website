@@ -16,3 +16,7 @@
     display: table;
     clear: both;
 }
+
+.row{
+    margin-left: 50px;
+}

@@ -3,34 +3,45 @@
     {% load static %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles_contact_form.css' %}">
-    <h6>За въпроси и поръчки, не се колебайте да ни пишете.</h6>
-
-    <div class="row"></div>
-
-    <div class="column-one">
-
-        <form action="{% url 'contacts' %}" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ form.name }}
-            </div>
-            <div class="form-group">
-                {{ form.cell_phone_number }}
-            </div>
-            <div class="form-group">
-                {{ form.email }}
-            </div>
-            <div class="form-group">
-                {{ form.subject }}
-            </div>
-            <div class="form-group">
-                {{ form.message }}
-                <input type="submit" value="Изпрати">
-            </div>
-        </form>
+    <div class="text">
+        <h6>За въпроси и поръчки, не се колебайте да ни пишете.</h6>
     </div>
-    <div class="column-two">
 
+    <div class="row">
+
+        <div class="column-one">
+            <form action="{% url 'contacts' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    {{ form.cell_phone_number }}
+                </div>
+                <div class="form-group">
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    {{ form.subject }}
+                </div>
+                <div class="form-group">
+                    {{ form.message }}
+                    <input type="submit" value="Изпрати">
+                </div>
+            </form>
+        </div>
+
+        <div class="column-two">
+            <h5>Адрес:</h5>
+            <h6>Промишлена зона Илиянци, София 1231</h6>
+
+            <h5>Телефони:</h5>
+            <h6>+359889359495</h6>
+
+            <h5>E-mail</h5>
+            <h6>info@cassamassa.com</h6>
+
+        </div>
     </div>
 
 {% endblock %}

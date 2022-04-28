@@ -41,6 +41,12 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+
+    font-family: "Open Sans", sans-serif;
+            font-size: 12px;
+            list-style: none;
+            letter-spacing: 1px;
+            text-align: left;
 }
 
 

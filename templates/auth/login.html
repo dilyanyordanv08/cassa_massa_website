@@ -4,14 +4,12 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/login-form.css' %}">
 
-<form action="{% url 'login user' %}" method="post">
+<form class="login" action="{% url 'login user' %}" method="post">
     {% csrf_token %}
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <div class="form-floating">
         {{ form }}
 
-{#        {{ form.user.email }}#}
-{#        {{ form.user.password }}#}
     </div>
 
     <div class="checkbox mb-3">
@@ -21,3 +19,5 @@
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 </form>
+
+

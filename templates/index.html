@@ -33,30 +33,30 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                 Проекти
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Маси</a></li>
-                <li><a class="dropdown-item" href="#">Кухни</a></li>
-                <li><a class="dropdown-item" href="#">Спални</a></li>
-                <li><a class="dropdown-item" href="#">Гардероби</a></li>
-                <li><a class="dropdown-item" href="#">Други</a></li>
-            </ul>
-            <a class="btn btn-secondary" href="{% url 'services' %}" role="button">Услуги</a>
-            {#            <a class="btn btn-secondary" href="#" role="button">Блог</a>#}
-            {#            <a class="btn btn-secondary" href="#" role="button">Готови Проекти</a>#}
-            <a class="btn btn-secondary" href="#" role="button">Материали</a>
-            <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
-        </div>
-        <div class="login">
-            <a href="{% url 'register user' %}">
-                <button>Register</button>
-            </a>
-            <a href="{% url 'login user' %}">
-                <button>Login</button>
-            </a>
+            {% if not request.user.is_authenticated %}
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="{% url 'tables' %}">Маси</a></li>
+                    <li><a class="dropdown-item" href="{% url 'kitchens' %}">Кухни</a></li>
+                    <li><a class="dropdown-item" href="{% url 'bedrooms' %}">Спални</a></li>
+                    <li><a class="dropdown-item" href="{% url 'wardrobes' %}">Гардероби</a></li>
+                    <li><a class="dropdown-item" href="{% url 'others' %}">Други</a></li>
+                </ul>
+                <a class="btn btn-secondary" href="{% url 'services' %}" role="button">Услуги</a>
+                <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
+                <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
+
+                <div class="login">
+                    <a href="{% url 'register user' %}">
+                        <button>Register</button>
+                    </a>
+                    <a href="{% url 'login user' %}">
+                        <button>Login</button>
+                    </a>
+                </div>
+            {% endif %}
+
         </div>
     </div>
-    {#    <a href="{% url 'register user' %}"><button>Register</button></a>#}
-    {#    <a href="{% url 'login user' %}"><button>Login</button></a>#}
 
 </header>
 <hr/>

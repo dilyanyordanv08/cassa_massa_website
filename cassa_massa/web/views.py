@@ -69,12 +69,24 @@ class KitchenCategoryListView(ListView):
     queryset = Images.objects.filter(category__category_title="kitchens")
 
 
+class KitchenDetailView(DetailView):
+    model = Images
+    template_name = "main/proekti/kitchens-slug.html"
+    context_object_name = 'image'
+
+
 class BedroomCategoryListView(ListView):
     model = Images
     template_name = 'main/proekti/bedroom.html'
     context_object_name = 'category_images'
 
     queryset = Images.objects.filter(category__category_title="bedrooms")
+
+
+class BedroomDetailView(DetailView):
+    model = Images
+    template_name = "main/proekti/bedroom-slug.html"
+    context_object_name = 'image'
 
 
 class WardrobesCategoryListView(ListView):
@@ -85,12 +97,24 @@ class WardrobesCategoryListView(ListView):
     queryset = Images.objects.filter(category__category_title="wardrobes")
 
 
+class WardrobesDetailView(DetailView):
+    model = Images
+    template_name = "main/proekti/wardrobes-slug.html"
+    context_object_name = 'image'
+
+
 class OthersCategoryListView(ListView):
     model = Images
     template_name = 'main/proekti/others.html'
     context_object_name = 'category_images'
 
     queryset = Images.objects.filter(category__category_title="others")
+
+
+class OthersDetailView(DetailView):
+    model = Images
+    template_name = "main/proekti/others-slug.html"
+    context_object_name = 'image'
 
 
 class BlogPostView(ListView):

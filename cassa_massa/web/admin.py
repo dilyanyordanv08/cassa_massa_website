@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from cassa_massa.web.models import Contact, Services, FinishedProducts, Category, Images, Post, PhotoAlbum
+from cassa_massa.web.models import Contact, Services, FinishedProducts, Category, Images, Post, PhotoAlbum, Reviews
 
 from django import forms
 
@@ -83,3 +83,8 @@ jQuery(function($) {
     $('div.inline-related').find('input[id$=order]').parent('div').hide();
 });
 """
+
+
+@admin.register(Reviews)
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ('author', 'description',)

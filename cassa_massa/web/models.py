@@ -297,6 +297,20 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("article-detail", kwargs={"slug": self.slug})
 
+
+class Reviews(models.Model):
+    NAME_MAX_LENGTH = 25
+
+    author = models.CharField(
+        max_length=NAME_MAX_LENGTH,
+    )
+
+    description = models.TextField()
+
+    def __str__(self):
+        return self.author
+
+
 # class Person(models.Model):
 #     VAT_MIN_LENGTH = 10
 #     Customer_first_name = models.CharField(

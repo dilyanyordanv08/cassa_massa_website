@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.views.generic import FormView, ListView, DetailView
 
 from cassa_massa.web.forms import ContactForm, TableInquiryForm
-from cassa_massa.web.models import Services, FinishedProducts, Images, Post, PhotoAlbum
+from cassa_massa.web.models import Services, FinishedProducts, Images, Post, PhotoAlbum, Reviews
 
 
 class ContactFormCreateView(FormView):
@@ -127,4 +127,7 @@ class BlogPostDetailView(DetailView):
     template_name = "main/blog/blog-01.html"
 
 
-
+class ReviewsListview(ListView):
+    model = Reviews
+    template_name = 'index.html'
+    context_object_name = 'firm_reviews'

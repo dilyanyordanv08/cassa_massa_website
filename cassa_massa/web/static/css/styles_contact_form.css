@@ -14,6 +14,19 @@ input[type=text], input[type=email], textarea {
 .column-two {
     float: right;
     width: 40%;
+    font-family: Roboto, sans-serif;
+}
+
+h5 {
+    color: #fddea7;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: bold;
+
+}
+
+h6 {
+    font-size: 14px;
 }
 
 .text {

@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<header style="background-color: #3F3E3F">
+<header style="background-color: #2e2e2e">
     <div class="header">
         <div class="jumbotron">
             <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>
@@ -29,47 +29,56 @@
             <span style="margin-left: 200px; margin-bottom: 200px; background-color: white">info@cassamassa.com</span>
         </h6>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                Проекти
-            </button>
             {% if not request.user.is_authenticated %}
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{% url 'tables' %}">Маси</a></li>
-                    <li><a class="dropdown-item" href="{% url 'kitchens' %}">Кухни</a></li>
-                    <li><a class="dropdown-item" href="{% url 'bedrooms' %}">Спални</a></li>
-                    <li><a class="dropdown-item" href="{% url 'wardrobes' %}">Гардероби</a></li>
-                    <li><a class="dropdown-item" href="{% url 'others' %}">Други</a></li>
-                </ul>
                 <a class="btn btn-secondary" href="{% url 'services' %}" role="button">Услуги</a>
                 <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
                 <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
                 <a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">Маси форма</a>
-                <div class="login">
-                    <a href="{% url 'register user' %}">
-                        <button>Register</button>
-                    </a>
-                    <a href="{% url 'login user' %}">
-                        <button>Login</button>
-                    </a>
-                </div>
+                {% if request.user.is_authenticated %}
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Проекти
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="{% url 'tables' %}">Маси</a></li>
+                        <li><a class="dropdown-item" href="{% url 'kitchens' %}">Кухни</a></li>
+                        <li><a class="dropdown-item" href="{% url 'bedrooms' %}">Спални</a></li>
+                        <li><a class="dropdown-item" href="{% url 'wardrobes' %}">Гардероби</a></li>
+                        <li><a class="dropdown-item" href="{% url 'others' %}">Други</a></li>
+                    </ul>
+                    <a class="btn btn-secondary" href="{% url 'services' %}" role="button">Услуги</a>
+                    <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
+                    <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
+                    <a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">Маси форма</a>
+                {% endif %}
             {% endif %}
+            <div class="login">
+                <a href="{% url 'register user' %}">
+                    <button>Register</button>
+                </a>
+                <a href="{% url 'login user' %}">
+                    <button>Login</button>
+                </a>
+            </div>
+
 
         </div>
     </div>
-
 </header>
 <hr/>
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{% static 'images/lozenecSpalnq1.jpeg' %}" class="d-block w-100" alt="apartment-pic">
+            <img src="{% static 'images/lozenecSpalnq1.jpeg' %}" class="d-block w-100" alt="apartment-pic" width="1200"
+                 height="600">
         </div>
         <div class="carousel-item">
-            <img src="{% static 'images/hola2.jpeg' %}" class="d-block w-100" alt="image-carousel">
+            <img src="{% static 'images/hola2.jpeg' %}" class="d-block w-100" alt="image-carousel" width="1200"
+                 height="600">
         </div>
         <div class="carousel-item">
-            <img src="{% static 'images/masaOreh1.jpeg' %}" class="d-block w-100" alt="image-walnut-table">
+            <img src="{% static 'images/masaOreh1.jpeg' %}" class="d-block w-100" alt="image-walnut-table" width="1200"
+                 height="600">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -119,127 +128,148 @@
 {#</div>#}
 
 
-<div class="container">
-    <div class="row">
-        <div class="moduletable   col-sm-3">
-            <div class="module_container">
-                <header class="page_header"><h3 class="moduleTitle material-icons-toys heading-style-3 visible-first">
-                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Запитване</span>
-                    <span class="item_title_part_1 item_title_part_even item_title_part_first_half">за</span> <span
-                        class="item_title_part_2 item_title_part_odd item_title_part_first_half">масивни</span> <span
-                        class="item_title_part_3 item_title_part_even item_title_part_first_half">маси</span> <span
-                        class="item_title_part_4 item_title_part_odd item_title_part_first_half">с</span> <span
-                        class="item_title_part_5 item_title_part_even item_title_part_second_half">или</span> <span
-                        class="item_title_part_6 item_title_part_odd item_title_part_second_half">без</span> <span
-                        class="item_title_part_7 item_title_part_even item_title_part_second_half">епоксидна</span>
-                    <span class="item_title_part_8 item_title_part_odd item_title_part_second_half item_title_part_last">смола</span>
-                </h3></header>
-                <div class="mod-article-single custom mod-article-single__" id="module_223">
-                    <div class="item__module visible-first" id="item_158">
-                        <!-- Item Title -->
-                        <h5 class="item-title heading-style-5 visible-first"><span
-                                class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Форма</span>
-                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half">за</span>
-                            <span class="item_title_part_2 item_title_part_odd item_title_part_second_half item_title_part_last">запитване</span>
-                        </h5>
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="moduletable   col-sm-3">#}
+{#            <div class="module_container">#}
+{#                <header class="page_header"><h3 class="moduleTitle material-icons-toys heading-style-3 visible-first">#}
+{#                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Запитване</span>#}
+{#                    <span class="item_title_part_1 item_title_part_even item_title_part_first_half">за</span> <span#}
+{#                        class="item_title_part_2 item_title_part_odd item_title_part_first_half">масивни</span> <span#}
+{#                        class="item_title_part_3 item_title_part_even item_title_part_first_half">маси</span> <span#}
+{#                        class="item_title_part_4 item_title_part_odd item_title_part_first_half">с</span> <span#}
+{#                        class="item_title_part_5 item_title_part_even item_title_part_second_half">или</span> <span#}
+{#                        class="item_title_part_6 item_title_part_odd item_title_part_second_half">без</span> <span#}
+{#                        class="item_title_part_7 item_title_part_even item_title_part_second_half">епоксидна</span>#}
+{#                    <span class="item_title_part_8 item_title_part_odd item_title_part_second_half item_title_part_last">смола</span>#}
+{#                </h3>#}
+{#                </header>#}
+{#                <div class="mod-article-single custom mod-article-single__" id="module_223">#}
+{#                    <div class="item__module visible-first" id="item_158">#}
+{#                        <!-- Item Title -->#}
+{#                        <h5 class="item-title heading-style-5 visible-first"><span#}
+{#                                class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Форма</span>#}
+{#                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half">за</span>#}
+{#                            <span class="item_title_part_2 item_title_part_odd item_title_part_second_half item_title_part_last">запитване</span>#}
+{#                        </h5>#}
+{##}
+{#                        <!-- Intro Text -->#}
+{#                        <div class="item_introtext">#}
+{#                            <p>Тук може да посочите параметрите на желаната от Вас маса.</p>#}
+{#                        </div>#}
+{#                        <hr/>#}
+{#                        <button type="button" class="btn btn-outline-secondary">#}
+{#                            <a href="http://127.0.0.1:8000/table-inquiry/"> Форма за запитване</a>#}
+{#                        </button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="moduletable   col-sm-3 col-sm-offset-1">#}
+{#            <div class="module_container">#}
+{#                <header class="page_header"><h3#}
+{#                        class="moduleTitle material-icons-track_changes heading-style-3 visible-first"><span#}
+{#                        class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Как</span>#}
+{#                    <span class="item_title_part_1 item_title_part_even item_title_part_first_half">изпълняваме</span>#}
+{#                    <span class="item_title_part_2 item_title_part_odd item_title_part_second_half">проектите</span>#}
+{#                    <span class="item_title_part_3 item_title_part_even item_title_part_second_half item_title_part_last">си?</span>#}
+{#                </h3></header>#}
+{#                <div class="mod-article-single custom mod-article-single__" id="module_224">#}
+{#                    <div class="item__module visible-first" id="item_159">#}
+{#                        <!-- Item Title -->#}
+{#                        <h5 class="item-title heading-style-5 visible-first"><span#}
+{#                                class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Материали</span>#}
+{#                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half">и</span>#}
+{#                            <span class="item_title_part_2 item_title_part_odd item_title_part_second_half">качествен</span>#}
+{#                            <span class="item_title_part_3 item_title_part_even item_title_part_second_half item_title_part_last">контрол</span>#}
+{#                        </h5>#}
+{##}
+{#                        <!-- Intro Text -->#}
+{#                        <div class="item_introtext">#}
+{#                            <p>В нашите цехове се изпозлват висококачествени маериали на световноизвестни#}
+{#                                производители.</p>#}
+{#                        </div>#}
+{#                        <hr/>#}
+{#                        <button type="button" class="btn btn-outline-secondary">#}
+{#                            <a href="http://127.0.0.1:8000/materials/">Материали</a>#}
+{#                        </button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="moduletable   col-sm-3 col-sm-offset-1">#}
+{#            <div class="module_container">#}
+{#                <header class="page_header"><h3#}
+{#                        class="moduleTitle material-icons-nature_people heading-style-3 visible-first"><span#}
+{#                        class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Защо</span>#}
+{#                    <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">CassaMassa?</span>#}
+{#                </h3></header>#}
+{#                <div class="mod-article-single custom mod-article-single__" id="module_225">#}
+{#                    <div class="item__module visible-first" id="item_160">#}
+{#                        <!-- Item Title -->#}
+{#                        <h5 class="item-title heading-style-5 visible-first"><span#}
+{#                                class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Уникалност</span>#}
+{#                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half">във</span>#}
+{#                            <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">всеки</span>#}
+{#                            <span class="item_title_part_3 item_title_part_even item_title_part_second_half">проект</span>#}
+{#                            <span class="item_title_part_4 item_title_part_odd item_title_part_second_half item_title_part_last">!</span>#}
+{#                        </h5>#}
+{##}
+{#                        <!-- Intro Text -->#}
+{#                        <div class="item_introtext">#}
+{#                            <p>Всички проекти се съобразяват с желанията на клиента, коментират се с техническите ни#}
+{#                                специалисти и се реализират в максимално кратки срокове.</p>#}
+{#                        </div>#}
+{#                        <hr/>#}
+{#                        <a class="readmore" href=""><i class="fa fa-angle-right"></i></a></div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
 
-                        <!-- Intro Text -->
-                        <div class="item_introtext">
-                            <p>Тук може да посочите параметрите на желаната от Вас маса.</p>
-                        </div>
-                        <hr/>
-                        <button type="button" class="btn btn-outline-secondary">
-                            <a href="http://127.0.0.1:8000/table-inquiry/"> Форма за запитване</a>
-                        </button>
-                    </div>
 
+<section id="middle-section">
+    <article>
+        <h2>Запитване за масивни маси с или без епоксидна смола</h2>
+        <h3>ФОРМА ЗА ЗАПИТВАНЕ</h3>
+        <hr/>
+        <button type="button" class="btn btn-outline-secondary">
+            <a href="http://127.0.0.1:8000/table-inquiry/"> Форма за запитване</a>
+        </button>
 
-                </div>
-            </div>
-        </div>
-        <div class="moduletable   col-sm-3 col-sm-offset-1">
-            <div class="module_container">
-                <header class="page_header"><h3
-                        class="moduleTitle material-icons-track_changes heading-style-3 visible-first"><span
-                        class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Как</span>
-                    <span class="item_title_part_1 item_title_part_even item_title_part_first_half">изпълняваме</span>
-                    <span class="item_title_part_2 item_title_part_odd item_title_part_second_half">проектите</span>
-                    <span class="item_title_part_3 item_title_part_even item_title_part_second_half item_title_part_last">си?</span>
-                </h3></header>
-                <div class="mod-article-single custom mod-article-single__" id="module_224">
-                    <div class="item__module visible-first" id="item_159">
-                        <!-- Item Title -->
-                        <h5 class="item-title heading-style-5 visible-first"><span
-                                class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Материали</span>
-                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half">и</span>
-                            <span class="item_title_part_2 item_title_part_odd item_title_part_second_half">качествен</span>
-                            <span class="item_title_part_3 item_title_part_even item_title_part_second_half item_title_part_last">контрол</span>
-                        </h5>
+    </article>
+    <article>
+        <h2>Как изпълняваме проектите си?</h2>
+        <h3>МАТЕРИАЛИ И КАЧЕСТВЕН КОНТРОЛ</h3>
+        <hr/>
+        <button type="button" class="btn btn-outline-secondary">
+            <a href="http://127.0.0.1:8000/materials/">Материали</a>
+        </button>
+    </article>
+    <article>
+        <h2>Защо CassaMassa?</h2>
+        <h3>УНИКАЛНОСТ ВЪВ ВСЕКИ ПРОЕКТ !</h3>
+    </article>
 
-                        <!-- Intro Text -->
-                        <div class="item_introtext">
-                            <p>В нашите цехове се изпозлват висококачествени маериали на световноизвестни
-                                производители.</p>
-                        </div>
-                        <hr/>
-                        <button type="button" class="btn btn-outline-secondary">
-                            <a href="http://127.0.0.1:8000/materials/">Материали</a>
-                        </button>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-        <div class="moduletable   col-sm-3 col-sm-offset-1">
-            <div class="module_container">
-                <header class="page_header"><h3
-                        class="moduleTitle material-icons-nature_people heading-style-3 visible-first"><span
-                        class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Защо</span>
-                    <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">CassaMassa?</span>
-                </h3></header>
-                <div class="mod-article-single custom mod-article-single__" id="module_225">
-                    <div class="item__module visible-first" id="item_160">
-                        <!-- Item Title -->
-                        <h5 class="item-title heading-style-5 visible-first"><span
-                                class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Уникалност</span>
-                            <span class="item_title_part_1 item_title_part_even item_title_part_first_half">във</span>
-                            <span class="item_title_part_2 item_title_part_odd item_title_part_first_half">всеки</span>
-                            <span class="item_title_part_3 item_title_part_even item_title_part_second_half">проект</span>
-                            <span class="item_title_part_4 item_title_part_odd item_title_part_second_half item_title_part_last">!</span>
-                        </h5>
-
-                        <!-- Intro Text -->
-                        <div class="item_introtext">
-                            <p>Всички проекти се съобразяват с желанията на клиента, коментират се с техническите ни
-                                специалисти и се реализират в максимално кратки срокове.</p>
-                        </div>
-                        <hr/>
-                        <a class="readmore" href=""><i class="fa fa-angle-right"></i></a></div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 
 <img src="{% static 'images/Screenshot 2022-05-02 at 16.27.31.png' %}" class="img-fluid" alt="pic">
 
-<div>
+<div class="reviews">
     {% for review in object_list %}
         <h3>{{ object.author }}</h3>
         <h6>{{ object.description }}</h6>
     {% endfor %}
 </div>
 
-{% block page_content %}
-{% endblock %}
+{#{% block page_content %}#}
+{#{% endblock %}#}
 
 <hr/>
 <footer class="footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2022 Copyright: <a class="btn btn-secondary" href="/privacy-policy/">Privacy Policy</a>
+        &copy 2022 Copyright: <a class="btn btn-secondary" href="/privacy-policy/">Privacy Policy</a>
         <a class="text-dark" href="https://cassamassa.com">CassaMassa.com</a>
     </div>
 </footer>

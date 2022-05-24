@@ -55,7 +55,7 @@ class UserLoginView(LoginView):
 
 class LogoutUserView(LogoutView):
     next_page = None
-    template_name = 'index.html'
+    template_name = 'index_new.html'
 
 
 class ChangePasswordView(PasswordResetView):

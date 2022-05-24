@@ -1,0 +1,110 @@
+header {
+    background-color: #2e2e2e;
+}
+
+nav ul {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+    display: block;
+    padding: 30px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.login button{
+    display: block;
+    float: left;
+    border-radius: 5px;
+    position: static;
+}
+
+.logout {
+    display: block;
+    float: left;
+    border-radius: 5px;
+    position: static;
+}
+
+
+header ul{
+    margin-top: 2px;
+}
+
+.logo {
+    float: left;
+    position: relative;
+    margin: 15px 15px 30px 20px;
+    display: flex;
+}
+
+.size-header {
+    display: block;
+}
+
+article {
+    float: left;
+    width: 25%;
+    margin: 30px;
+}
+
+.middle-section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    list-style: none;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    margin-top: auto;
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.flex-item{
+    padding: .5em;
+}
+
+.flex-item.no-shrink {
+  flex-shrink: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Open Sans", sans-serif;
+    font-size: 22px;
+    text-rendering: optimizeLegibility;
+    text-decoration: none;
+}
+
+h3 {
+    color: #fe4953;
+
+}

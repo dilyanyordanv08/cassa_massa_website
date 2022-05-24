@@ -3,13 +3,8 @@
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    width: 50%;
-    /*max-width: 1200px;*/
-
-}
-
-.row {
-    width: 50%;
+    width: 100%;
+    max-width: 1200px;
 
 }
 
@@ -24,13 +19,13 @@ div {
 }
 
 .header-div {
+    background-color: #3F3E3F;
     min-height: 80px;
     /*height: 200px;*/
 }
 
-.header-main {
+.header {
     width: 80%;
-    background-color: #2e2e2e;
 }
 
 body {
@@ -94,10 +89,3 @@ html {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#middle-section {
-    background-color: black;
-    text-align: center;
-    display: block;
-    width: 80%;
-    position: center;
-}

@@ -1,8 +1,10 @@
 from django.contrib import messages
+from django.http import HttpResponse
+from django.views import View
 from django.views.generic import FormView, ListView, DetailView
 
 from cassa_massa.web.forms import ContactForm, TableInquiryForm
-from cassa_massa.web.models import Services, FinishedProducts, Images, Post, PhotoAlbum, Reviews
+from cassa_massa.web.models import Services, FinishedProducts, Images, Post, Reviews
 
 
 class ContactFormCreateView(FormView):
@@ -131,3 +133,12 @@ class ReviewsListview(ListView):
     model = Reviews
     template_name = 'index.html'
     context_object_name = 'firm_reviews'
+
+
+def internal_error(request):
+    return HttpResponse('An error occurred, please  try again')
+
+
+class InternalErrorView(View):
+    def get(self, request):
+        return HttpResponse('An error occurred, please  try again')

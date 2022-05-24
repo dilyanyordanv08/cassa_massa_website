@@ -14,80 +14,47 @@
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_new.css' %}">
     <title>Cassa Massa</title>
 </head>
 <body>
 
-<header class="size-header">
-    <div class="header">
-        <div class="logo-header">
-            <a href="{% url 'index' %}"><img class="logo" style="width: 15%"
-                                             src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/></a>
-            {#            <img class="logo" style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>#}
-        </div>
-        <h6>
-            <span class="telephone-number">+359889359495</span>
-        </h6>
-        <h6>
-            <span class="email">info@cassamassa.com</span>
-        </h6>
-
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                Проекти
-            </button>
-            {% if not request.user.is_authenticated %}
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{% url 'tables' %}">Маси</a></li>
-                    <li><a class="dropdown-item" href="{% url 'kitchens' %}">Кухни</a></li>
-                    <li><a class="dropdown-item" href="{% url 'bedrooms' %}">Спални</a></li>
-                    <li><a class="dropdown-item" href="{% url 'wardrobes' %}">Гардероби</a></li>
-                    <li><a class="dropdown-item" href="{% url 'others' %}">Други</a></li>
-                </ul>
-                <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
-                <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
-                <a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">Маси форма</a>
-
-                <div class="login">
-                    <a href="{% url 'register user' %}">
-                        <button>Register</button>
-                    </a>
-                    <a href="{% url 'login user' %}">
-                        <button>Login</button>
-                    </a>
-                </div>
-            {% endif %}
-
-            {% if request.user.is_authenticated %}
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{% url 'tables' %}">Маси</a></li>
-                    <li><a class="dropdown-item" href="{% url 'kitchens' %}">Кухни</a></li>
-                    <li><a class="dropdown-item" href="{% url 'bedrooms' %}">Спални</a></li>
-                    <li><a class="dropdown-item" href="{% url 'wardrobes' %}">Гардероби</a></li>
-                    <li><a class="dropdown-item" href="{% url 'others' %}">Други</a></li>
-                </ul>
-                <a class="btn btn-secondary" href="{% url 'services' %}" role="button">Услуги</a>
-                <a class="btn btn-secondary" href="{% url 'blogs-list' %}" role="button">Блог</a>
-                <a class="btn btn-secondary" href="{% url 'finished-products' %}" role="button">Готови Проекти</a>
-                <a class="btn btn-secondary" href="{% url 'materials' %}" role="button">Материали</a>
-                <a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">Контакт</a>
-                <a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">Маси форма</a>
-                <div>
-                    <a class="logout-button" href="{% url 'logout' %}">
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">LOGOUT</button>
-                    </a>
-                </div>
-            {% endif %}
-        </div>
-        {#        <div>#}
-        {#            <a class="logout-button" href="{% url 'logout' %}">#}
-        {#                <button class="w-100 btn btn-lg btn-primary" type="submit">LOGOUT</button>#}
-        {#            </a>#}
-        {#        </div>#}
+<header>
+    <div class="logo-pic">
+        <img style="width: 15%" src="https://www.cassamassa.com/images/CassaMassa_Logo_1.png" alt=""/>
     </div>
+    <nav id="topmenu">
+        <ul>
+            {% if not request.user.is_athenticated %}
+                {#                <li><a class="btn btn-secondary" href="{% url 'services' %}" role="button">УСЛУГИ</a></li>#}
+                {#                <li><a class="btn btn-secondary" href="{% url 'materials' %}" role="button">МАТЕРИАЛИ</a></li>#}
+                {#                <li><a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">КОНТАКТ</a></li>#}
+                {#                <li><a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">МАСИ ФОРМА</a></li>#}
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">ПРОЕКТИ
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="btn btn-secondary" href="{% url 'tables' %}">МАСИ</a></li>
+                    <li><a class="btn btn-secondary" href="{% url 'kitchens' %}">КУХНИ</a></li>
+                    <li><a class="btn btn-secondary" href="{% url 'bedrooms' %}">СПАЛНИ</a></li>
+                    <li><a class="btn btn-secondary" href="{% url 'wardrobes' %}">ГАЕРДЕРОБИ</a></li>
+                    <li><a class="btn btn-secondary" href="{% url 'others' %}">ДРУГИ</a></li>
+                </ul>
+                <li><a class="btn btn-secondary" href="{% url 'services' %}" role="button">УСЛУГИ</a></li>
+                <li><a class="btn btn-secondary" href="{% url 'materials' %}" role="button">МАТЕРИАЛИ</a></li>
+                <li><a class="btn btn-secondary" href="{% url 'contacts' %}" role="button">КОНТАКТ</a></li>
+                <li><a class="btn btn-secondary" href="{% url 'table-inquiry-form' %}" role="button">МАСИ ФОРМА</a></li>
+            {% endif %}
+            <div class="logout">
+                <a href="{% url 'logout' %}">
+                    {#                    <button class="w-100 btn btn-lg btn-primary" type="submit">LOGOUT</button>#}
+                    <button class="btn btn-secondary" type="submit">Logout</button>
+                </a>
+            </div>
+        </ul>
+    </nav>
 </header>
 
 <p class="body">
